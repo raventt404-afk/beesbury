@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grind & Bloom — Specialty Coffee</title>
+  <meta name="description" content="Grind & Bloom — specialty coffee, homemade pastries, and a space to slow down. Visit us today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #f7f2ea;
+      --cream2:   #ede6d8;
+      --cream3:   #e4dccb;
+      --brown:    #3b2714;
+      --brown2:   #5c3d20;
+      --brown3:   #7a5230;
+      --caramel:  #c47c2e;
+      --caramel2: #d99b4a;
+      --green:    #4a6741;
+      --green2:   #6a8f5f;
+      --text:     #2b1d10;
+      --text2:    #6b5040;
+      --text3:    #a08070;
+      --border:   rgba(59,39,20,0.15);
+      --border2:  rgba(59,39,20,0.08);
+      --white:    #fff;
+      --radius:   8px;
+      --radius2:  16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--caramel); border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(247,242,234,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem; color: var(--brown); text-decoration: none;
+    }
+    .nav-logo span { color: var(--caramel); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text2); font-size: 0.88rem; text-decoration: none;
+      font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--brown); }
+    .nav-order {
+      background: var(--brown); color: var(--cream);
+      padding: 0.55rem 1.4rem; border-radius: 50px;
+      font-size: 0.82rem; font-weight: 600; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-order:hover { background: var(--brown2); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--cream2) 100%);
+    }
+    .hero-blob {
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5; pointer-events: none;
+    }
+    .hero-blob-1 { width: 500px; height: 500px; background: rgba(196,124,46,0.2); top: -100px; right: -100px; }
+    .hero-blob-2 { width: 400px; height: 400px; background: rgba(74,103,65,0.15); bottom: -50px; left: -100px; }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      max-width: 1160px; margin: 0 auto; padding: 6rem 2rem;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(196,124,46,0.12); border: 1px solid rgba(196,124,46,0.3);
+      padding: 0.35rem 0.9rem; border-radius: 50px;
+      font-size: 0.76rem; font-weight: 600; color: var(--caramel);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      line-height: 1.1; color: var(--brown); margin-bottom: 1.25rem;
+    }
+    .hero-title em { font-style: italic; color: var(--caramel); }
+    .hero-sub { color: var(--text2); font-size: 1.05rem; line-height: 1.75; max-width: 440px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-brown {
+      background: var(--brown); color: var(--cream);
+      padding: 0.85rem 2rem; border-radius: 50px;
+      font-size: 0.88rem; font-weight: 600; text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(59,39,20,0.25);
+    }
+    .btn-brown:hover { background: var(--brown2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(59,39,20,0.3); }
+    .btn-outline-brown {
+      background: transparent; color: var(--brown);
+      padding: 0.85rem 2rem; border-radius: 50px;
+      border: 1.5px solid var(--border);
+      font-size: 0.88rem; font-weight: 500; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .btn-outline-brown:hover { border-color: var(--brown); background: rgba(59,39,20,0.04); transform: translateY(-2px); }
+    .hero-pills { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-pill {
+      background: var(--white); border: 1px solid var(--border);
+      padding: 0.4rem 1rem; border-radius: 50px;
+      font-size: 0.8rem; color: var(--text2); font-weight: 500;
+      box-shadow: 0 2px 8px rgba(59,39,20,0.06);
+    }
+    /* Hero visual */
+    .hero-visual {
+      position: relative; display: flex;
+      align-items: center; justify-content: center;
+    }
+    .cup-card {
+      background: var(--white);
+      border-radius: var(--radius2);
+      padding: 2.5rem;
+      box-shadow: 0 20px 60px rgba(59,39,20,0.12), 0 4px 16px rgba(59,39,20,0.08);
+      width: 300px;
+      position: relative; z-index: 2;
+    }
+    .cup-emoji { font-size: 5rem; text-align: center; display: block; margin-bottom: 1rem; }
+    .cup-name {
+      font-family: 'DM Serif Display', serif; font-size: 1.4rem;
+      color: var(--brown); text-align: center; margin-bottom: 0.25rem;
+    }
+    .cup-sub { color: var(--text3); font-size: 0.82rem; text-align: center; margin-bottom: 1.5rem; }
+    .cup-row { display: flex; justify-content: space-between; align-items: center; }
+    .cup-price { font-size: 1.5rem; font-weight: 700; color: var(--caramel); font-family: 'DM Serif Display', serif; }
+    .cup-btn {
+      background: var(--brown); color: var(--cream);
+      padding: 0.5rem 1.2rem; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 600; text-decoration: none;
+      border: none; cursor: pointer; transition: background 0.2s;
+    }
+    .cup-btn:hover { background: var(--brown2); }
+    /* floating badges */
+    .float-badge {
+      position: absolute;
+      background: var(--white); border-radius: var(--radius);
+      padding: 0.6rem 1rem; box-shadow: 0 8px 24px rgba(59,39,20,0.12);
+      font-size: 0.8rem; font-weight: 600; color: var(--brown);
+      white-space: nowrap;
+    }
+    .float-badge-1 { top: -20px; right: -10px; }
+    .float-badge-2 { bottom: 20px; left: -30px; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 0; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem; color: var(--caramel); font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      line-height: 1.2; color: var(--brown); margin-bottom: 0.8rem;
+    }
+    .section-title em { font-style: italic; color: var(--caramel); }
+    .section-desc { color: var(--text2); max-width: 520px; line-height: 1.75; }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-desc { margin: 0 auto; }
+
+    /* ── STORY ── */
+    .story { background: var(--cream2); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .story-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .story-card {
+      background: var(--white); padding: 1.5rem; border-radius: var(--radius2);
+      box-shadow: 0 4px 16px rgba(59,39,20,0.06);
+      text-align: center;
+    }
+    .story-card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .story-card h4 { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--brown); margin-bottom: 0.3rem; }
+    .story-card p { font-size: 0.8rem; color: var(--text3); line-height: 1.5; }
+    .story-text p { color: var(--text2); line-height: 1.8; margin-bottom: 1rem; }
+
+    /* ── MENU ── */
+    .menu-section { background: var(--cream); }
+    .menu-cats { display: flex; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .menu-cat {
+      padding: 0.55rem 1.3rem; border-radius: 50px; cursor: pointer;
+      font-size: 0.83rem; font-weight: 500;
+      background: var(--white); color: var(--text2);
+      border: 1.5px solid var(--border);
+      transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .menu-cat.active { background: var(--brown); color: var(--cream); border-color: var(--brown); }
+    .menu-cat:hover:not(.active) { border-color: var(--brown3); color: var(--brown); }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+    .menu-grid-cafe { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+    .menu-card {
+      background: var(--white); border-radius: var(--radius2);
+      overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(59,39,20,0.06);
+    }
+    .menu-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(59,39,20,0.12); }
+    .menu-card-img {
+      height: 140px; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+    }
+    .menu-card-img.bg-warm { background: linear-gradient(135deg, #f9e8cc 0%, #f0d4a8 100%); }
+    .menu-card-img.bg-cool { background: linear-gradient(135deg, #d8ecd4 0%, #c4dfc0 100%); }
+    .menu-card-img.bg-pink { background: linear-gradient(135deg, #f9dce4 0%, #f2c6d0 100%); }
+    .menu-card-img.bg-blue { background: linear-gradient(135deg, #d4e4f9 0%, #bed4f0 100%); }
+    .menu-card-body { padding: 1.25rem; }
+    .menu-card-name {
+      font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--brown);
+      margin-bottom: 0.3rem;
+    }
+    .menu-card-desc { font-size: 0.82rem; color: var(--text3); line-height: 1.5; margin-bottom: 0.9rem; }
+    .menu-card-footer { display: flex; justify-content: space-between; align-items: center; }
+    .menu-card-price { font-weight: 700; font-size: 1.05rem; color: var(--caramel); font-family: 'DM Serif Display', serif; }
+    .menu-card-tag {
+      font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 50px;
+      background: rgba(196,124,46,0.1); color: var(--caramel); font-weight: 600;
+    }
+    .menu-card-tag.green { background: rgba(74,103,65,0.1); color: var(--green); }
+
+    /* ── VIBE ── */
+    .vibe { background: var(--brown); color: var(--cream); }
+    .vibe .section-tag { color: var(--caramel2); }
+    .vibe .section-title { color: var(--cream); }
+    .vibe .section-desc { color: rgba(247,242,234,0.6); }
+    .vibe-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .vibe-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius2); padding: 2rem 1.5rem; text-align: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .vibe-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+    .vibe-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .vibe-title { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 0.5rem; }
+    .vibe-desc { font-size: 0.84rem; color: rgba(247,242,234,0.6); line-height: 1.6; }
+
+    /* ── LOYALTY ── */
+    .loyalty { background: var(--cream2); }
+    .loyalty-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .loyalty-visual {
+      background: var(--white); border-radius: var(--radius2); padding: 2rem;
+      box-shadow: 0 8px 32px rgba(59,39,20,0.08);
+    }
+    .loyalty-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    .loyalty-logo {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--brown); display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .loyalty-card-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--brown); }
+    .loyalty-card-sub { font-size: 0.78rem; color: var(--text3); }
+    .stamp-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin-bottom: 1.5rem; }
+    .stamp {
+      aspect-ratio: 1; border-radius: 50%;
+      border: 2px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; background: var(--cream2);
+      transition: transform 0.2s;
+    }
+    .stamp.filled { background: var(--caramel); border-color: var(--caramel); }
+    .stamp.filled:hover { transform: scale(1.1); }
+    .loyalty-progress { font-size: 0.82rem; color: var(--text2); text-align: center; }
+    .loyalty-text p { color: var(--text2); line-height: 1.8; margin-bottom: 1rem; }
+    .loyalty-perks { list-style: none; margin-top: 1.5rem; }
+    .loyalty-perks li {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--border2);
+      font-size: 0.88rem; color: var(--text2);
+    }
+    .loyalty-perks li:last-child { border-bottom: none; }
+    .perk-icon { font-size: 1.1rem; }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--cream); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .gallery-item {
+      border-radius: var(--radius); overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; transition: transform 0.3s;
+    }
+    .gallery-item:hover { transform: scale(1.02); }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+    .g1 { background: linear-gradient(135deg, #f9e8cc, #f0d4a8); min-height: 180px; }
+    .g2 { background: linear-gradient(135deg, #d8ecd4, #c4dfc0); min-height: 180px; }
+    .g3 { background: linear-gradient(135deg, #f9dce4, #f2c6d0); min-height: 380px; }
+    .g4 { background: linear-gradient(135deg, #ede6d8, #e4dccb); min-height: 180px; }
+    .g5 { background: linear-gradient(135deg, #d4e4f9, #bed4f0); min-height: 180px; }
+    .g6 { background: linear-gradient(135deg, #f9e8cc, #e8d090); min-height: 180px; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--cream2); }
+    .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .test-card {
+      background: var(--white); border-radius: var(--radius2); padding: 2rem;
+      box-shadow: 0 4px 16px rgba(59,39,20,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .test-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(59,39,20,0.1); }
+    .test-stars { color: var(--caramel); font-size: 0.9rem; margin-bottom: 1rem; }
+    .test-text { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--text2); line-height: 1.7; margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .test-author { display: flex; align-items: center; gap: 0.75rem; }
+    .test-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--cream2); display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .test-name { font-size: 0.88rem; font-weight: 600; color: var(--brown); }
+    .test-meta { font-size: 0.76rem; color: var(--text3); }
+
+    /* ── FIND US ── */
+    .findus { background: var(--cream); }
+    .findus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    .hours-table tr { border-bottom: 1px solid var(--border2); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table td { padding: 0.75rem 0; font-size: 0.9rem; color: var(--text2); }
+    .hours-table td:last-child { color: var(--brown); font-weight: 500; text-align: right; }
+    .hours-table tr.today td { color: var(--caramel); font-weight: 600; }
+    .map-placeholder {
+      background: var(--cream2); border: 1.5px solid var(--border);
+      border-radius: var(--radius2); min-height: 280px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.75rem; color: var(--text3); font-size: 0.88rem;
+    }
+    .map-placeholder-icon { font-size: 3rem; }
+    .contact-chips { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+    .contact-chip {
+      display: flex; align-items: center; gap: 1rem;
+      background: var(--white); border-radius: var(--radius);
+      padding: 0.85rem 1.25rem;
+      box-shadow: 0 2px 8px rgba(59,39,20,0.06);
+    }
+    .contact-chip-icon { font-size: 1.2rem; }
+    .contact-chip-label { font-size: 0.75rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; }
+    .contact-chip-value { font-size: 0.9rem; color: var(--brown); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown); color: var(--cream);
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem; color: var(--cream); margin-bottom: 0.75rem;
+    }
+    .footer-logo span { color: var(--caramel2); }
+    .footer-desc { font-size: 0.88rem; color: rgba(247,242,234,0.55); line-height: 1.7; margin-bottom: 1.5rem; }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-social {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; text-decoration: none; color: var(--cream);
+      transition: background 0.2s;
+    }
+    .footer-social:hover { background: rgba(255,255,255,0.18); }
+    .footer-col h5 {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--caramel2); margin-bottom: 1rem;
+    }
+    .footer-col a {
+      display: block; color: rgba(247,242,234,0.55); text-decoration: none;
+      font-size: 0.88rem; margin-bottom: 0.6rem; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; color: rgba(247,242,234,0.4);
+    }
+    .demo-banner {
+      background: rgba(196,124,46,0.15); border-bottom: 1px solid rgba(196,124,46,0.25);
+      padding: 0.7rem; text-align: center;
+      font-size: 0.78rem; color: var(--text2); letter-spacing: 0.03em;
+    }
+    .demo-banner a { color: var(--caramel); text-decoration: none; font-weight: 600; }
+    .demo-banner a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+      .hero-visual { justify-content: flex-start; }
+      .story-grid, .loyalty-wrapper, .findus-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .vibe-grid { grid-template-columns: repeat(2, 1fr); }
+      .test-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .g3 { grid-row: span 1; min-height: 180px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 580px) {
+      .hero-title { font-size: 2.4rem; }
+      .vibe-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Demo banner -->
+  <div class="demo-banner">
+    🎨 Demo site — built by <a href="../../index.html">Beesbury</a>. Want a site like this for your café? <a href="../../index.html#contact">Contact us →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#home" class="nav-logo">Grind <span>&amp; Bloom</span></a>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#vibe">The Vibe</a></li>
+      <li><a href="#loyalty">Loyalty</a></li>
+      <li><a href="#findus">Find Us</a></li>
+    </ul>
+    <a href="#findus" class="nav-order">Visit Us ☕</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-badge">☕ Specialty Coffee</div>
+          <h1 class="hero-title">
+            Slow down.<br />
+            Sip something<br />
+            <em>beautiful.</em>
+          </h1>
+          <p class="hero-sub">
+            Single-origin beans, hand-crafted drinks, and homemade pastries baked fresh every morning.
+            A neighborhood café that feels like home.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn-brown">Explore Menu</a>
+            <a href="#findus" class="btn-outline-brown">Find Us</a>
+          </div>
+          <div class="hero-pills">
+            <span class="hero-pill">🌍 Single Origin Beans</span>
+            <span class="hero-pill">🥐 Homemade Pastries</span>
+            <span class="hero-pill">🌿 Plant-Based Options</span>
+            <span class="hero-pill">📶 Free WiFi</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="cup-card" style="position:relative">
+            <div class="float-badge float-badge-1">⭐ 4.9 Rating</div>
+            <div class="float-badge float-badge-2">🌍 3 Origins Today</div>
+            <span class="cup-emoji">☕</span>
+            <div class="cup-name">Caramel Latte</div>
+            <div class="cup-sub">Ethiopian Yirgacheffe · Oat Milk</div>
+            <div class="cup-row">
+              <span class="cup-price">$5.50</span>
+              <a href="#menu" class="cup-btn">Order →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story" id="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text">
+          <span class="section-tag">Our Story</span>
+          <h2 class="section-title">A café born from <em>obsession.</em></h2>
+          <p>Grind & Bloom started as a farmers' market stall in 2019 — a single-origin pour-over stand run by two friends who believed good coffee deserved the same attention as fine wine.</p>
+          <p>In 2021 we opened our first brick-and-mortar space. Today we roast our own beans, bake fresh every morning, and serve a community of regulars who've become family.</p>
+          <p>We care about the whole chain: from the farmer who grows the bean, to the barista who pulls your shot, to the moment you close your eyes and take the first sip.</p>
+        </div>
+        <div class="story-cards">
+          <div class="story-card">
+            <div class="story-card-icon">🌱</div>
+            <h4>Ethical Sourcing</h4>
+            <p>Direct trade with 6 farms across Ethiopia, Colombia, and Guatemala.</p>
+          </div>
+          <div class="story-card">
+            <div class="story-card-icon">🔥</div>
+            <h4>In-House Roasting</h4>
+            <p>Small-batch roasted weekly in our back room on a 3kg Probat roaster.</p>
+          </div>
+          <div class="story-card">
+            <div class="story-card-icon">🥐</div>
+            <h4>Baked Fresh Daily</h4>
+            <p>Everything in our pastry case is made from scratch every morning.</p>
+          </div>
+          <div class="story-card">
+            <div class="story-card-icon">🌿</div>
+            <h4>Plant Friendly</h4>
+            <p>Oat, almond, soy, and coconut milk always available, no extra charge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What We Serve</span>
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-desc">Everything made with care. Nothing served twice-heated.</p>
+      </div>
+
+      <div class="menu-cats">
+        <button class="menu-cat active" onclick="switchMenuTab(event,'espresso')">☕ Espresso</button>
+        <button class="menu-cat" onclick="switchMenuTab(event,'filter')">🫗 Filter Coffee</button>
+        <button class="menu-cat" onclick="switchMenuTab(event,'cold')">🧊 Cold Drinks</button>
+        <button class="menu-cat" onclick="switchMenuTab(event,'food')">🥐 Food</button>
+      </div>
+
+      <!-- Espresso -->
+      <div class="menu-panel active" id="tab-espresso">
+        <div class="menu-grid-cafe">
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">☕</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Espresso</div>
+              <div class="menu-card-desc">Double shot, single origin. Clean, bright, and intense.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$3.50</span><span class="menu-card-tag">Classic</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">🤎</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Flat White</div>
+              <div class="menu-card-desc">Ristretto double shot, silky microfoam. Stronger than a latte, creamier than a cappuccino.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$5.00</span><span class="menu-card-tag">Popular</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-pink">🌸</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Rose Latte</div>
+              <div class="menu-card-desc">Espresso, steamed oat milk, house-made rose syrup. Floral and soft.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$5.80</span><span class="menu-card-tag">Signature</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">🍯</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Caramel Latte</div>
+              <div class="menu-card-desc">Ethiopian Yirgacheffe shot, oat milk, house caramel drizzle.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$5.50</span><span class="menu-card-tag">Popular</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-cool">🌿</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Matcha Latte</div>
+              <div class="menu-card-desc">Ceremonial grade matcha, steamed oat milk, hint of vanilla. No espresso.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$5.80</span><span class="menu-card-tag green">Caffeine-Free</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">🍫</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Mocha</div>
+              <div class="menu-card-desc">Double espresso, 72% dark chocolate, steamed milk. Bittersweet and rich.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$5.50</span><span class="menu-card-tag">Signature</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter -->
+      <div class="menu-panel" id="tab-filter">
+        <div class="menu-grid-cafe">
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">🫗</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">V60 Pour Over</div>
+              <div class="menu-card-desc">Brewed to order. Ask your barista what single origin is on today.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$6.50</span><span class="menu-card-tag">Daily Rotation</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-cool">🫙</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Aeropress</div>
+              <div class="menu-card-desc">Full-immersion brew. Bold, syrupy, low-acid. Great black or with milk.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$5.50</span><span class="menu-card-tag">Smooth</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">⚗️</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Siphon Coffee</div>
+              <div class="menu-card-desc">Vacuum-brewed, theatrical, and incredibly clean. Weekend special only.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$8.00</span><span class="menu-card-tag">Weekend Only</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cold -->
+      <div class="menu-panel" id="tab-cold">
+        <div class="menu-grid-cafe">
+          <div class="menu-card">
+            <div class="menu-card-img bg-blue">🧊</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Cold Brew</div>
+              <div class="menu-card-desc">12-hour steeped Guatemalan beans. Smooth, chocolatey, zero bitterness.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$6.00</span><span class="menu-card-tag">Popular</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-blue">🧋</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Iced Latte</div>
+              <div class="menu-card-desc">Double espresso over ice, your choice of milk. Simple, perfect, refreshing.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$5.50</span><span class="menu-card-tag">Classic</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-pink">🌸</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Pink Lemonade Tonic</div>
+              <div class="menu-card-desc">Espresso tonic with hibiscus syrup and a squeeze of citrus. Wildly refreshing.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$6.50</span><span class="menu-card-tag">Signature</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Food -->
+      <div class="menu-panel" id="tab-food">
+        <div class="menu-grid-cafe">
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">🥐</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Butter Croissant</div>
+              <div class="menu-card-desc">Hand-laminated, 48-hour dough. Shatteringly flaky, buttery, perfect.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$4.00</span><span class="menu-card-tag">Baked Today</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">🍩</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Kouign-Amann</div>
+              <div class="menu-card-desc">Caramelized, crispy, chewy. Our most requested pastry — sells out by noon.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$4.50</span><span class="menu-card-tag">Signature</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-cool">🥗</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Seasonal Toast</div>
+              <div class="menu-card-desc">House-baked sourdough, whipped ricotta, seasonal fruit, honey, fresh herbs.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$10.00</span><span class="menu-card-tag green">Seasonal</span></div>
+            </div>
+          </div>
+          <div class="menu-card">
+            <div class="menu-card-img bg-warm">🍫</div>
+            <div class="menu-card-body">
+              <div class="menu-card-name">Chocolate Babka Slice</div>
+              <div class="menu-card-desc">Swirled with 70% dark chocolate paste. Soft, tender, deeply chocolatey.</div>
+              <div class="menu-card-footer"><span class="menu-card-price">$5.00</span><span class="menu-card-tag">Popular</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIBE -->
+  <section class="vibe" id="vibe">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">Why Guests Love It</span>
+        <h2 class="section-title" style="color:var(--cream);">The Grind &amp; Bloom Vibe</h2>
+        <p class="section-desc center">More than coffee. A place to breathe.</p>
+      </div>
+      <div class="vibe-grid">
+        <div class="vibe-card">
+          <div class="vibe-icon">📶</div>
+          <div class="vibe-title">Fast Free WiFi</div>
+          <p class="vibe-desc">Symmetric gigabit internet. Multiple power outlets at every seat. Perfect for remote work.</p>
+        </div>
+        <div class="vibe-card">
+          <div class="vibe-icon">🎵</div>
+          <div class="vibe-title">Curated Playlists</div>
+          <p class="vibe-desc">No algorithm. A human-curated playlist that changes by time of day — jazz mornings, lo-fi afternoons.</p>
+        </div>
+        <div class="vibe-card">
+          <div class="vibe-icon">🌿</div>
+          <div class="vibe-title">Green &amp; Bright</div>
+          <p class="vibe-desc">Floor-to-ceiling windows, living plant wall, natural materials. Designed to feel like the outside, inside.</p>
+        </div>
+        <div class="vibe-card">
+          <div class="vibe-icon">🐾</div>
+          <div class="vibe-title">Dog Friendly</div>
+          <p class="vibe-desc">Pups welcome on the terrace. We keep a bowl of water and dog treats behind the counter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOYALTY -->
+  <section class="loyalty" id="loyalty">
+    <div class="container">
+      <div class="loyalty-wrapper">
+        <div class="loyalty-visual">
+          <div class="loyalty-card-header">
+            <div class="loyalty-logo">☕</div>
+            <div>
+              <div class="loyalty-card-title">Bloom Card</div>
+              <div class="loyalty-card-sub">Your loyalty card</div>
+            </div>
+          </div>
+          <div class="stamp-grid">
+            <div class="stamp filled">☕</div>
+            <div class="stamp filled">☕</div>
+            <div class="stamp filled">☕</div>
+            <div class="stamp filled">☕</div>
+            <div class="stamp filled">☕</div>
+            <div class="stamp filled">☕</div>
+            <div class="stamp filled">☕</div>
+            <div class="stamp">☕</div>
+            <div class="stamp">☕</div>
+            <div class="stamp" style="background:var(--caramel); border-color:var(--caramel); font-size:1rem;">🎁</div>
+          </div>
+          <p class="loyalty-progress">7 of 9 — <strong>3 more visits</strong> until your free coffee!</p>
+        </div>
+        <div class="loyalty-text">
+          <span class="section-tag">Bloom Card</span>
+          <h2 class="section-title">Every 10th coffee <em>is on us.</em></h2>
+          <p>Pick up a physical Bloom Card at the counter, or ask for our digital version via the app. Every drink earns a stamp — no matter the size, no matter the milk.</p>
+          <ul class="loyalty-perks">
+            <li><span class="perk-icon">☕</span> Every 10th coffee free — any drink, any size</li>
+            <li><span class="perk-icon">🎂</span> Free slice of cake on your birthday month</li>
+            <li><span class="perk-icon">🌅</span> Early access to seasonal menu launches</li>
+            <li><span class="perk-icon">🛍️</span> 10% off whole-bean purchases to take home</li>
+            <li><span class="perk-icon">📬</span> Monthly email with brewing tips from our baristas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">Atmosphere</span>
+        <h2 class="section-title">Come as you are.</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item g1">☕</div>
+        <div class="gallery-item g2">🌿</div>
+        <div class="gallery-item g3 tall">🥐</div>
+        <div class="gallery-item g4">🍫</div>
+        <div class="gallery-item g5">🧋</div>
+        <div class="gallery-item g6">🌸</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="reviews">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-tag">Reviews</span>
+        <h2 class="section-title">What our regulars say.</h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">"I've tried every café in this city. Grind & Bloom is the only one I keep coming back to. The flat white is perfect, the croissants are the best I've had outside Paris, and the vibes are unmatched."</p>
+          <div class="test-author">
+            <div class="test-avatar">👤</div>
+            <div>
+              <div class="test-name">Layla Hoffman</div>
+              <div class="test-meta">Regular · 3 years · Verified</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">"I work remotely and I've done entire projects from this café. The WiFi is fast, the music is always perfect, and somehow there's never a bad day here. Also — the cold brew is *insane*."</p>
+          <div class="test-author">
+            <div class="test-avatar">👤</div>
+            <div>
+              <div class="test-name">Tom Eriksson</div>
+              <div class="test-meta">Remote Worker · Monthly Regular</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-text">"The Kouign-Amann sells out before 11am every day. I now set an alarm specifically to get there before it's gone. That should tell you everything you need to know about this place."</p>
+          <div class="test-author">
+            <div class="test-avatar">👤</div>
+            <div>
+              <div class="test-name">Priya Nair</div>
+              <div class="test-meta">Food Writer · @priyaeatswell</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND US -->
+  <section class="findus" id="findus">
+    <div class="container">
+      <div class="findus-grid">
+        <div>
+          <span class="section-tag">Find Us</span>
+          <h2 class="section-title">Come say <em>hello.</em></h2>
+          <p class="section-desc" style="margin-bottom:1.5rem;">We're in the heart of the neighborhood — look for the green door and the smell of fresh bread.</p>
+          <div class="map-placeholder">
+            <div class="map-placeholder-icon">📍</div>
+            <div>28 Bloom Street, Garden District</div>
+            <div style="font-size:0.78rem; color:var(--text3);">Corner of Bloom St. & Oak Ave.</div>
+          </div>
+        </div>
+        <div>
+          <h3 class="section-title" style="font-size:1.6rem; margin-bottom:0.5rem;">Hours</h3>
+          <table class="hours-table">
+            <tr><td>Monday</td><td>7:00 – 17:00</td></tr>
+            <tr><td>Tuesday</td><td>7:00 – 17:00</td></tr>
+            <tr><td>Wednesday</td><td>7:00 – 17:00</td></tr>
+            <tr><td>Thursday</td><td>7:00 – 17:00</td></tr>
+            <tr class="today"><td>Friday ← Today</td><td>7:00 – 19:00</td></tr>
+            <tr><td>Saturday</td><td>8:00 – 19:00</td></tr>
+            <tr><td>Sunday</td><td>9:00 – 16:00</td></tr>
+          </table>
+          <div class="contact-chips">
+            <div class="contact-chip">
+              <span class="contact-chip-icon">📍</span>
+              <div>
+                <div class="contact-chip-label">Address</div>
+                <div class="contact-chip-value">28 Bloom Street, Garden District</div>
+              </div>
+            </div>
+            <div class="contact-chip">
+              <span class="contact-chip-icon">📞</span>
+              <div>
+                <div class="contact-chip-label">Phone</div>
+                <div class="contact-chip-value">+1 (555) 042-7761</div>
+              </div>
+            </div>
+            <div class="contact-chip">
+              <span class="contact-chip-icon">✉️</span>
+              <div>
+                <div class="contact-chip-label">Email</div>
+                <div class="contact-chip-value">hello@grindandbloom.com</div>
+              </div>
+            </div>
+            <div class="contact-chip">
+              <span class="contact-chip-icon">📸</span>
+              <div>
+                <div class="contact-chip-label">Instagram</div>
+                <div class="contact-chip-value">@grindandbloom</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Grind <span>&amp; Bloom</span></div>
+          <p class="footer-desc">Specialty coffee, homemade pastries, and a place that feels like yours. Open every day except we need a break too.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social">📸</a>
+            <a href="#" class="footer-social">🐦</a>
+            <a href="#" class="footer-social">🎵</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Menu</h5>
+          <a href="#">Espresso Drinks</a>
+          <a href="#">Filter Coffee</a>
+          <a href="#">Cold Drinks</a>
+          <a href="#">Pastries &amp; Food</a>
+        </div>
+        <div class="footer-col">
+          <h5>The Café</h5>
+          <a href="#">Our Story</a>
+          <a href="#">Bloom Card</a>
+          <a href="#">Wholesale Beans</a>
+          <a href="#">Events</a>
+        </div>
+        <div class="footer-col">
+          <h5>Visit</h5>
+          <a href="#">28 Bloom Street</a>
+          <a href="#">Garden District</a>
+          <a href="#">hello@grindandbloom.com</a>
+          <a href="#">+1 (555) 042-7761</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Grind &amp; Bloom. All rights reserved.</span>
+        <span>Website by <a href="../../index.html" style="color:var(--caramel2); text-decoration:none;">Beesbury</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Menu tabs
+    function switchMenuTab(e, id) {
+      document.querySelectorAll('.menu-cat').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      e.target.classList.add('active');
+      document.getElementById('tab-' + id).classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beesbury — Web Development & Security Tools</title>
+  <meta name="description" content="We build modern websites, web applications, and security tools. Custom solutions for businesses and developers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner container">
+      <a class="nav__logo" href="#home">
+        <span class="logo-bracket">[</span>Beesbury<span class="logo-bracket">]</span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="btn btn--sm btn--outline">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ──────────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero__grid-bg" aria-hidden="true"></div>
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__badge">
+        <span class="badge-dot"></span>
+        Available for new projects
+      </div>
+      <h1 class="hero__title">
+        We Build<br />
+        <span class="gradient-text">Digital Products</span><br />
+        That Work.
+      </h1>
+      <p class="hero__sub">
+        Custom websites, web applications &amp; security tools —
+        crafted with precision for businesses that demand results.
+      </p>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--primary">View Our Work</a>
+        <a href="#contact" class="btn btn--ghost">Get a Quote →</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num">4+</span>
+          <span class="stat__label">Projects Delivered</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">1</span>
+          <span class="stat__label">Open-Source Tools</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num">100%</span>
+          <span class="stat__label">Client Satisfaction</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ──────────────────────────────────────────── -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">What We Do</span>
+        <h2 class="section__title">Services</h2>
+        <p class="section__desc">From a landing page to a full SaaS platform — we handle the entire stack.</p>
+      </div>
+      <div class="services__grid">
+
+        <div class="service-card" data-index="01">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Custom Website Development</h3>
+          <p>Pixel-perfect, responsive websites tailored to your brand. Fast, accessible, and SEO-ready from day one.</p>
+          <ul class="service-card__list">
+            <li>Landing pages &amp; corporate sites</li>
+            <li>E-commerce stores</li>
+            <li>Portfolio &amp; personal brands</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="02">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Web Application Development</h3>
+          <p>Full-featured web apps with clean architecture. Admin dashboards, SaaS platforms, internal tools.</p>
+          <ul class="service-card__list">
+            <li>SaaS &amp; multi-tenant platforms</li>
+            <li>Dashboards &amp; analytics</li>
+            <li>REST API development</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="03">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Security &amp; Audit Tools</h3>
+          <p>Custom security scanners, recon tools, and audit utilities built for developers and pentesters.</p>
+          <ul class="service-card__list">
+            <li>Passive recon &amp; scanning tools</li>
+            <li>Security audit dashboards</li>
+            <li>Vulnerability report generators</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="04">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>SEO &amp; Agency Platforms</h3>
+          <p>White-label SEO reporting platforms and agency tools that save hours every week.</p>
+          <ul class="service-card__list">
+            <li>SEO reporting platforms</li>
+            <li>Client-ready report generation</li>
+            <li>Agency workflow automation</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="05">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Dark, modern, and clean interfaces. We design for conversion, usability, and aesthetics.</p>
+          <ul class="service-card__list">
+            <li>Figma wireframes &amp; prototypes</li>
+            <li>Design systems</li>
+            <li>Component libraries</li>
+          </ul>
+        </div>
+
+        <div class="service-card" data-index="06">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3>Automation &amp; Scripting</h3>
+          <p>Python scripts, bots, scrapers, and automation tools that eliminate repetitive work.</p>
+          <ul class="service-card__list">
+            <li>Web scraping &amp; data collection</li>
+            <li>Workflow automation</li>
+            <li>CLI tools &amp; utilities</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ──────────────────────────────────────────── -->
+  <section class="section section--dark" id="projects">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Our Work</span>
+        <h2 class="section__title">Featured Projects</h2>
+        <p class="section__desc">Real products we built and shipped.</p>
+      </div>
+      <div class="projects__grid">
+
+        <!-- Project 1: SEO Report -->
+        <article class="project-card project-card--featured">
+          <div class="project-card__image">
+            <div class="browser-mockup" aria-hidden="true">
+              <div class="browser-mockup__bar">
+                <span></span><span></span><span></span>
+                <div class="browser-mockup__url">seoreport-2b5w.onrender.com</div>
+              </div>
+              <div class="browser-mockup__screen">
+                <div class="mock-screen seo-screen">
+                  <div class="mock-header">
+                    <div class="mock-logo">📊 SEO Report</div>
+                    <div class="mock-nav-dots"><span></span><span></span><span></span></div>
+                  </div>
+                  <div class="mock-body">
+                    <div class="mock-card">
+                      <div class="mock-label">Organic Traffic</div>
+                      <div class="mock-value green">↑ 24%</div>
+                    </div>
+                    <div class="mock-card">
+                      <div class="mock-label">Keywords Ranked</div>
+                      <div class="mock-value">142</div>
+                    </div>
+                    <div class="mock-card">
+                      <div class="mock-label">Page Score</div>
+                      <div class="mock-value green">91/100</div>
+                    </div>
+                    <div class="mock-chart">
+                      <div class="mock-bar" style="height:40%"></div>
+                      <div class="mock-bar" style="height:60%"></div>
+                      <div class="mock-bar" style="height:45%"></div>
+                      <div class="mock-bar" style="height:80%"></div>
+                      <div class="mock-bar" style="height:65%"></div>
+                      <div class="mock-bar" style="height:90%"></div>
+                      <div class="mock-bar" style="height:75%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__badge">Live</div>
+          </div>
+          <div class="project-card__content">
+            <div class="project-card__tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Web App</span>
+              <span class="tag">SaaS</span>
+              <span class="tag">Agency Tool</span>
+            </div>
+            <h3 class="project-card__title">SEO Report Platform</h3>
+            <p class="project-card__desc">
+              A full-featured SEO reporting platform built for agencies. Provides multi-client management,
+              automated report generation, and clean dashboards — saving agencies hours per week.
+              Features login/register, per-client analytics, and exportable reports.
+            </p>
+            <div class="project-card__features">
+              <div class="feature"><span class="feature-dot"></span>Multi-client management</div>
+              <div class="feature"><span class="feature-dot"></span>Automated report generation</div>
+              <div class="feature"><span class="feature-dot"></span>Agency-ready dashboards</div>
+              <div class="feature"><span class="feature-dot"></span>Built for scale</div>
+            </div>
+            <div class="project-card__actions">
+              <a href="https://seoreport-2b5w.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">
+                View Live →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: ShadowScan -->
+        <article class="project-card project-card--featured">
+          <div class="project-card__image">
+            <div class="terminal-mockup" aria-hidden="true">
+              <div class="terminal-mockup__bar">
+                <span></span><span></span><span></span>
+                <span class="terminal-title">shadowscan — python</span>
+              </div>
+              <div class="terminal-mockup__screen">
+                <div class="term-line"><span class="term-prompt">$</span> python shadowscan.py</div>
+                <div class="term-line term-cyan">🎯 Target: https://example.com</div>
+                <div class="term-line term-dim">   Domain:  example.com</div>
+                <div class="term-line term-dim">   IP:      93.184.216.34</div>
+                <div class="term-line">&nbsp;</div>
+                <div class="term-line term-progress">
+                  <span class="term-green">[████████████████░░░░]</span> 8/13 Scanning...
+                </div>
+                <div class="term-line">&nbsp;</div>
+                <div class="term-line">✅ DNS Records    <span class="term-green">Found</span></div>
+                <div class="term-line">✅ Open Ports     <span class="term-green">3 found</span></div>
+                <div class="term-line">⚠️  SSL Cert      <span class="term-yellow">Expires 30d</span></div>
+                <div class="term-line">❌ HTTP Headers   <span class="term-red">3 missing</span></div>
+                <div class="term-line">&nbsp;</div>
+                <div class="term-line term-yellow">🟡 RISK: MEDIUM (score: 8.5)</div>
+                <div class="term-line term-green">📄 Report saved → reports/html/</div>
+              </div>
+            </div>
+            <div class="project-card__badge project-card__badge--green">Open Source</div>
+          </div>
+          <div class="project-card__content">
+            <div class="project-card__tags">
+              <span class="tag">Python</span>
+              <span class="tag">Security</span>
+              <span class="tag">CLI Tool</span>
+              <span class="tag">Open Source</span>
+            </div>
+            <h3 class="project-card__title">ShadowScan</h3>
+            <p class="project-card__desc">
+              A passive web &amp; server security scanner built for ethical reconnaissance.
+              Scans DNS, open ports, SSL certificates, HTTP headers, and checks for common
+              vulnerabilities — then generates clean HTML &amp; JSON reports, ready for clients.
+            </p>
+            <div class="project-card__features">
+              <div class="feature"><span class="feature-dot"></span>DNS, Ports &amp; SSL audit</div>
+              <div class="feature"><span class="feature-dot"></span>Vulnerability surface scan</div>
+              <div class="feature"><span class="feature-dot"></span>Subdomain discovery</div>
+              <div class="feature"><span class="feature-dot"></span>Client-ready HTML reports</div>
+            </div>
+            <div class="project-card__actions">
+              <a href="https://github.com/raventt404-afk/shadowscan" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">
+                GitHub →
+              </a>
+              <a href="#tools" class="btn btn--ghost btn--sm">Learn More</a>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- Project 3: Ember & Oak Restaurant -->
+        <article class="project-card project-card--featured">
+          <div class="project-card__image">
+            <div class="browser-mockup" aria-hidden="true">
+              <div class="browser-mockup__bar">
+                <span></span><span></span><span></span>
+                <div class="browser-mockup__url">demo — ember &amp; oak</div>
+              </div>
+              <div class="browser-mockup__screen">
+                <div class="mock-screen" style="background:#0d0b09; padding:1rem; display:flex; flex-direction:column; gap:0.5rem; font-family:serif;">
+                  <div style="color:#c9a84c; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase;">🔥 Open-Flame Fine Dining</div>
+                  <div style="color:#f0ebe3; font-size:1.1rem; font-weight:700; line-height:1.1;">Ember<br/><em style="color:#c9a84c; font-weight:400;">& Oak</em></div>
+                  <div style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.25rem;">
+                    <span style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); color:#c9a84c; font-size:0.5rem; padding:0.15rem 0.4rem; border-radius:2px; font-family:sans-serif;">Starters</span>
+                    <span style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); color:#c9a84c; font-size:0.5rem; padding:0.15rem 0.4rem; border-radius:2px; font-family:sans-serif;">Main Courses</span>
+                    <span style="background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3); color:#c9a84c; font-size:0.5rem; padding:0.15rem 0.4rem; border-radius:2px; font-family:sans-serif;">Desserts</span>
+                  </div>
+                  <div style="margin-top:0.5rem; display:flex; gap:0.5rem;">
+                    <div style="background:#1a1713; border:1px solid rgba(201,168,76,0.2); padding:0.4rem 0.5rem; border-radius:2px; flex:1;">
+                      <div style="color:#c9a84c; font-size:0.55rem; font-family:sans-serif;">Côte de Bœuf</div>
+                      <div style="color:#9e9488; font-size:0.45rem; font-family:sans-serif; margin-top:0.1rem;">45-day dry-aged</div>
+                      <div style="color:#c9a84c; font-size:0.65rem; font-weight:700; margin-top:0.2rem; font-family:sans-serif;">$95</div>
+                    </div>
+                    <div style="background:#1a1713; border:1px solid rgba(201,168,76,0.2); padding:0.4rem 0.5rem; border-radius:2px; flex:1;">
+                      <div style="color:#c9a84c; font-size:0.55rem; font-family:sans-serif;">A5 Wagyu</div>
+                      <div style="color:#9e9488; font-size:0.45rem; font-family:sans-serif; margin-top:0.1rem;">Japanese Striploin</div>
+                      <div style="color:#c9a84c; font-size:0.65rem; font-weight:700; margin-top:0.2rem; font-family:sans-serif;">$120</div>
+                    </div>
+                  </div>
+                  <div style="margin-top:0.4rem; background:#c9a84c; color:#0d0b09; font-size:0.52rem; font-weight:700; font-family:sans-serif; text-align:center; padding:0.3rem; border-radius:2px; letter-spacing:0.08em;">RESERVE A TABLE →</div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__badge">Demo</div>
+          </div>
+          <div class="project-card__content">
+            <div class="project-card__tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Restaurant</span>
+              <span class="tag">Demo Site</span>
+            </div>
+            <h3 class="project-card__title">Ember &amp; Oak — Restaurant</h3>
+            <p class="project-card__desc">
+              A premium fine-dining restaurant website with a dark gold aesthetic.
+              Features an interactive menu with tabs, reservation form, testimonials section,
+              and animated flame effects. Built as a demo for hospitality clients.
+            </p>
+            <div class="project-card__features">
+              <div class="feature"><span class="feature-dot"></span>Dark gold fine-dining aesthetic</div>
+              <div class="feature"><span class="feature-dot"></span>Interactive tabbed menu</div>
+              <div class="feature"><span class="feature-dot"></span>Table reservation form</div>
+              <div class="feature"><span class="feature-dot"></span>Fully responsive design</div>
+            </div>
+            <div class="project-card__actions">
+              <a href="demos/restaurant/index.html" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">
+                View Demo →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Grind & Bloom Cafe -->
+        <article class="project-card project-card--featured">
+          <div class="project-card__image">
+            <div class="browser-mockup" aria-hidden="true">
+              <div class="browser-mockup__bar">
+                <span></span><span></span><span></span>
+                <div class="browser-mockup__url">demo — grind &amp; bloom</div>
+              </div>
+              <div class="browser-mockup__screen">
+                <div class="mock-screen" style="background:#f7f2ea; padding:1rem; display:flex; flex-direction:column; gap:0.5rem;">
+                  <div style="color:#c47c2e; font-size:0.55rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; font-family:sans-serif;">☕ Specialty Coffee</div>
+                  <div style="color:#3b2714; font-size:1rem; font-weight:700; line-height:1.15; font-family:serif;">Slow down.<br/>Sip something <em style="color:#c47c2e;">beautiful.</em></div>
+                  <div style="display:flex; gap:0.35rem; flex-wrap:wrap; margin-top:0.2rem;">
+                    <span style="background:white; border:1px solid rgba(59,39,20,0.15); color:#6b5040; font-size:0.48rem; padding:0.15rem 0.45rem; border-radius:50px; font-family:sans-serif;">🌍 Single Origin</span>
+                    <span style="background:white; border:1px solid rgba(59,39,20,0.15); color:#6b5040; font-size:0.48rem; padding:0.15rem 0.45rem; border-radius:50px; font-family:sans-serif;">🥐 Homemade</span>
+                    <span style="background:white; border:1px solid rgba(59,39,20,0.15); color:#6b5040; font-size:0.48rem; padding:0.15rem 0.45rem; border-radius:50px; font-family:sans-serif;">🌿 Plant-Based</span>
+                  </div>
+                  <div style="background:white; border-radius:8px; padding:0.6rem; display:flex; align-items:center; gap:0.5rem; margin-top:0.25rem; box-shadow:0 2px 8px rgba(59,39,20,0.08);">
+                    <span style="font-size:1.8rem;">☕</span>
+                    <div>
+                      <div style="color:#3b2714; font-size:0.6rem; font-weight:700; font-family:serif;">Caramel Latte</div>
+                      <div style="color:#a08070; font-size:0.48rem; font-family:sans-serif;">Ethiopian Yirgacheffe · Oat Milk</div>
+                      <div style="color:#c47c2e; font-size:0.65rem; font-weight:700; font-family:sans-serif;">$5.50</div>
+                    </div>
+                  </div>
+                  <div style="margin-top:0.2rem; background:#3b2714; color:#f7f2ea; font-size:0.52rem; font-weight:700; font-family:sans-serif; text-align:center; padding:0.3rem; border-radius:50px; letter-spacing:0.06em;">EXPLORE MENU →</div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__badge">Demo</div>
+          </div>
+          <div class="project-card__content">
+            <div class="project-card__tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Café</span>
+              <span class="tag">Demo Site</span>
+            </div>
+            <h3 class="project-card__title">Grind &amp; Bloom — Café</h3>
+            <p class="project-card__desc">
+              A warm specialty coffee shop website with a cream and brown palette.
+              Features a full menu with category tabs, loyalty card section, gallery,
+              and a "Find Us" page with opening hours. Built as a demo for café clients.
+            </p>
+            <div class="project-card__features">
+              <div class="feature"><span class="feature-dot"></span>Warm, inviting café aesthetic</div>
+              <div class="feature"><span class="feature-dot"></span>Full menu with 4 categories</div>
+              <div class="feature"><span class="feature-dot"></span>Loyalty card visual &amp; perks</div>
+              <div class="feature"><span class="feature-dot"></span>Hours, location &amp; contact</div>
+            </div>
+            <div class="project-card__actions">
+              <a href="demos/cafe/index.html" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">
+                View Demo →
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TOOLS SHOWCASE ────────────────────────────────────── -->
+  <section class="section" id="tools">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Open Source</span>
+        <h2 class="section__title">Tools We Build</h2>
+        <p class="section__desc">We don't just build for clients — we build tools the community actually uses.</p>
+      </div>
+      <div class="tools__wrapper">
+        <div class="tool-feature">
+          <div class="tool-feature__info">
+            <div class="tool-feature__tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Security Tool
+            </div>
+            <h3 class="tool-feature__title">🕵️ ShadowScan</h3>
+            <p class="tool-feature__desc">
+              Passive web &amp; server security scanner for ethical reconnaissance. Built for developers and
+              pentesters who need fast, clean security reports. No exploits. No active attacks. Just clean intel.
+            </p>
+            <div class="tool-feature__modules">
+              <div class="module-item">
+                <span class="module-icon">🌐</span>
+                <div>
+                  <strong>DNS Recon</strong>
+                  <small>A, MX, TXT, NS, CNAME, AAAA + zone transfer</small>
+                </div>
+              </div>
+              <div class="module-item">
+                <span class="module-icon">🔌</span>
+                <div>
+                  <strong>Port Scanner</strong>
+                  <small>13 common ports: FTP, SSH, HTTP, RDP, MySQL…</small>
+                </div>
+              </div>
+              <div class="module-item">
+                <span class="module-icon">🛡️</span>
+                <div>
+                  <strong>HTTP Header Audit</strong>
+                  <small>Security headers + cookie flag analysis</small>
+                </div>
+              </div>
+              <div class="module-item">
+                <span class="module-icon">🔍</span>
+                <div>
+                  <strong>Vulnerability Surface</strong>
+                  <small>SQLi, XSS, CSRF, SSRF, IDOR, Open Redirect…</small>
+                </div>
+              </div>
+              <div class="module-item">
+                <span class="module-icon">🌍</span>
+                <div>
+                  <strong>Subdomain Discovery</strong>
+                  <small>DNS brute-force + crt.sh transparency logs</small>
+                </div>
+              </div>
+              <div class="module-item">
+                <span class="module-icon">⚙️</span>
+                <div>
+                  <strong>Tech Detection</strong>
+                  <small>WordPress, React, Next.js, Vue.js, Webpack…</small>
+                </div>
+              </div>
+            </div>
+            <div class="tool-feature__actions">
+              <a href="https://github.com/raventt404-afk/shadowscan" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                View on GitHub →
+              </a>
+              <div class="tool-feature__install">
+                <code>git clone https://github.com/raventt404-afk/shadowscan.git</code>
+                <button class="copy-btn" data-copy="git clone https://github.com/raventt404-afk/shadowscan.git" aria-label="Copy command">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="tool-feature__visual">
+            <div class="report-preview">
+              <div class="report-preview__header">
+                <span class="rp-title">🕵️ Security Report</span>
+                <span class="rp-target">example.com</span>
+              </div>
+              <div class="report-preview__risk risk--medium">
+                🟡 RISK LEVEL: MEDIUM &nbsp; Score: 8.5
+              </div>
+              <div class="report-preview__findings">
+                <div class="finding finding--warn">⚠️ Missing 3 security headers</div>
+                <div class="finding finding--warn">⚠️ Missing SPF record</div>
+                <div class="finding finding--warn">⚠️ Cookie missing HttpOnly flag</div>
+                <div class="finding finding--ok">✅ SSL certificate valid</div>
+                <div class="finding finding--ok">✅ No open RDP / FTP</div>
+              </div>
+              <div class="report-preview__summary">
+                <div class="rp-stat"><strong>7</strong><small>Subdomains</small></div>
+                <div class="rp-stat"><strong>3</strong><small>Open ports</small></div>
+                <div class="rp-stat"><strong>24</strong><small>Paths found</small></div>
+                <div class="rp-stat"><strong>2</strong><small>Emails leaked</small></div>
+              </div>
+              <div class="report-preview__footer">
+                <span>📄 JSON report saved</span>
+                <span>🌐 HTML report saved</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT / WHY US ────────────────────────────────────── -->
+  <section class="section section--dark" id="about">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Why Us</span>
+        <h2 class="section__title">We Build. We Ship. We Deliver.</h2>
+        <p class="section__desc">Not a big agency with slow processes — a focused team that ships real products.</p>
+      </div>
+      <div class="about__grid">
+        <div class="about__text">
+          <p>
+            <strong>Beesbury</strong> is a dev team focused on building things that actually work.
+            We've shipped SEO platforms, security tools, and web applications used by real clients
+            and open-source communities.
+          </p>
+          <p>
+            We care about the details: clean code, fast load times, solid security, and UX that
+            makes sense. No fluff, no bloat — just solid engineering.
+          </p>
+          <div class="about__tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">HTML/CSS</span>
+            <span class="tech-tag">REST APIs</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">Git</span>
+            <span class="tech-tag">Linux</span>
+            <span class="tech-tag">Security</span>
+            <span class="tech-tag">SEO</span>
+          </div>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-card__icon">⚡</div>
+            <h4>Fast Delivery</h4>
+            <p>We move fast without breaking things. Clean, tested code shipped on schedule.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon">🔒</div>
+            <h4>Security-First</h4>
+            <p>Every project is built with security in mind — not bolted on as an afterthought.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon">🎯</div>
+            <h4>Results-Oriented</h4>
+            <p>We care about outcomes: conversions, performance, and business goals.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon">🛠️</div>
+            <h4>Custom Solutions</h4>
+            <p>No templates, no drag-and-drop. Every product is built for your exact needs.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon">💬</div>
+            <h4>Direct Communication</h4>
+            <p>You work directly with the developers. No middlemen, no miscommunication.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card__icon">📈</div>
+            <h4>Built to Scale</h4>
+            <p>Architecture designed to grow with your business from day one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ────────────────────────────────────────────── -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">How It Works</span>
+        <h2 class="section__title">Our Process</h2>
+        <p class="section__desc">From idea to shipped product in 4 steps.</p>
+      </div>
+      <div class="process__steps">
+        <div class="process-step">
+          <div class="process-step__num">01</div>
+          <div class="process-step__content">
+            <h4>Discovery</h4>
+            <p>We dive into your goals, audience, and requirements. No assumptions — just clear understanding.</p>
+          </div>
+        </div>
+        <div class="process-step__connector" aria-hidden="true"></div>
+        <div class="process-step">
+          <div class="process-step__num">02</div>
+          <div class="process-step__content">
+            <h4>Design &amp; Plan</h4>
+            <p>Wireframes, architecture, tech stack. You approve before a single line of code is written.</p>
+          </div>
+        </div>
+        <div class="process-step__connector" aria-hidden="true"></div>
+        <div class="process-step">
+          <div class="process-step__num">03</div>
+          <div class="process-step__content">
+            <h4>Build &amp; Test</h4>
+            <p>Agile development with regular updates. You always know what's being built and why.</p>
+          </div>
+        </div>
+        <div class="process-step__connector" aria-hidden="true"></div>
+        <div class="process-step">
+          <div class="process-step__num">04</div>
+          <div class="process-step__content">
+            <h4>Launch &amp; Support</h4>
+            <p>We deploy, monitor, and support after launch. Your product keeps running smoothly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ────────────────────────────────────────────── -->
+  <section class="section section--dark" id="contact">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Get In Touch</span>
+        <h2 class="section__title">Start Your Project</h2>
+        <p class="section__desc">Reach out directly — we respond within 24 hours.</p>
+      </div>
+      <div class="contact__info contact__info--centered">
+        <div class="contact-info-card">
+          <div class="contact-info-card__icon">💬</div>
+          <h4>Telegram</h4>
+          <p>Fast response, direct communication</p>
+          <a href="https://t.me/hasan_inomuddin" target="_blank" rel="noopener noreferrer" class="contact-link">@Hasan_Inomuddin</a>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-card__icon">🐙</div>
+          <h4>GitHub</h4>
+          <p>Check our open-source work</p>
+          <a href="https://github.com/raventt404-afk" target="_blank" rel="noopener noreferrer" class="contact-link">raventt404-afk</a>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-card__icon">🌐</div>
+          <h4>SEO Platform</h4>
+          <p>Try our live SEO reporting tool</p>
+          <a href="https://seoreport-2b5w.onrender.com" target="_blank" rel="noopener noreferrer" class="contact-link">seoreport ↗</a>
+        </div>
+      </div>
+      <div class="contact__guarantee contact__guarantee--centered">
+        <div class="guarantee-item">✅ Response within 24 hours</div>
+        <div class="guarantee-item">✅ Free project consultation</div>
+        <div class="guarantee-item">✅ No commitment required</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="nav__logo" href="#home">
+          <span class="logo-bracket">[</span>Beesbury<span class="logo-bracket">]</span>
+        </a>
+        <p>Building digital products that work.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <strong>Services</strong>
+          <a href="#services">Websites</a>
+          <a href="#services">Web Apps</a>
+          <a href="#services">Security Tools</a>
+          <a href="#services">SEO Platforms</a>
+        </div>
+        <div class="footer__col">
+          <strong>Projects</strong>
+          <a href="https://seoreport-2b5w.onrender.com" target="_blank" rel="noopener noreferrer">SEO Report</a>
+          <a href="https://github.com/raventt404-afk/shadowscan" target="_blank" rel="noopener noreferrer">ShadowScan</a>
+          <a href="demos/restaurant/index.html" target="_blank" rel="noopener noreferrer">Ember &amp; Oak (Demo)</a>
+          <a href="demos/cafe/index.html" target="_blank" rel="noopener noreferrer">Grind &amp; Bloom (Demo)</a>
+        </div>
+        <div class="footer__col">
+          <strong>Connect</strong>
+          <a href="https://github.com/raventt404-afk" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://t.me/raventt404" target="_blank" rel="noopener noreferrer">Telegram</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom container">
+      <span>© 2026 Beesbury. All rights reserved.</span>
+      <span>Built with care. Shipped with precision.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

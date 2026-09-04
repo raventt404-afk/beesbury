@@ -119,63 +119,6 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
   });
 });
 
-/* ── CONTACT FORM ────────────────────────────────────────────── */
-const contactForm = document.getElementById('contactForm');
-const formNotice  = document.getElementById('formNotice');
-
-contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const data = Object.fromEntries(new FormData(contactForm));
-
-  // Basic validation
-  if (!data.name.trim()) {
-    showNotice('Please enter your name.', 'error');
-    return;
-  }
-  if (!isValidEmail(data.email)) {
-    showNotice('Please enter a valid email address.', 'error');
-    return;
-  }
-  if (!data.service) {
-    showNotice('Please select a service.', 'error');
-    return;
-  }
-  if (!data.message.trim() || data.message.trim().length < 20) {
-    showNotice('Please describe your project (at least 20 characters).', 'error');
-    return;
-  }
-
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
-  submitBtn.textContent = 'Sending…';
-  submitBtn.disabled = true;
-
-  // Simulate sending (replace with actual fetch/API call)
-  await delay(1200);
-
-  showNotice('✅ Message sent! We\'ll get back to you within 24 hours.', 'success');
-  contactForm.reset();
-  submitBtn.textContent = 'Send Message →';
-  submitBtn.disabled = false;
-});
-
-function showNotice(msg, type) {
-  formNotice.textContent = msg;
-  formNotice.className = `form__notice ${type}`;
-  setTimeout(() => {
-    formNotice.textContent = '';
-    formNotice.className = 'form__notice';
-  }, 6000);
-}
-
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 /* ── SMOOTH SCROLL FOR ANCHOR LINKS ─────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
